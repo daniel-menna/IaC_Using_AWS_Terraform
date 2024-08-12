@@ -16,7 +16,7 @@ The result is a robust solution for training Machine Learning models that can ha
 ### Data Source
 The data used in the project were prepared based on the data available at the link below:
 
-<a href=https://ai.stanford.edu/~amaas/data/sentiment>Movie Sentiments Analysis</a>
+- <a href=https://ai.stanford.edu/~amaas/data/sentiment>Movie Sentiments Analysis</a>
 
 ## How to run this project?
 
