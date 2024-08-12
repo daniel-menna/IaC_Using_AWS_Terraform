@@ -20,4 +20,13 @@ The data used in the project were prepared based on the data available at the li
 
 ## How to run this project?
 
+1. ### Make a fork of this repository
+Create a fork of this repository in your local environment.
+
+2. ### Download the Source Data
+Download the source data that it is available - <a href=https://ai.stanford.edu/~amaas/data/sentiment>here.</a> In the local project folder, create a new folder called 'dados' and upload the source file into.
+
+3. ### Seeting the terraform files
+
+
 ## Conclusion
