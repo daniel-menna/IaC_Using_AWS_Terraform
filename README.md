@@ -34,10 +34,6 @@ The data used in the project were prepared based on the data available at the li
 
 4. ### Runing the automation with Terraform
     Via Terminal, into the project folder, execute the commands below:
-    '''
-        docker build -t dsd-terraform-image:p1 .
-        docker run -dit --name dsd-p1 -v ./IaC:/iac dsd-terraform-image:p1 /bin/bash
-    '''
    ```
         docker build -t dsd-terraform-image:p1 .
         docker run -dit --name dsd-p1 -v ./IaC:/iac dsd-terraform-image:p1 /bin/bash
