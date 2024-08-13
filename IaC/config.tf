@@ -1,7 +1,7 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Configuração Para o Estado Remoto, Versão do Terraform e Provider
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# Setting remote state, version of terraform
 
-# Versão do Terraform
+# Terraform version
 terraform {
   required_version = "~> 1.7"
 
@@ -13,17 +13,17 @@ terraform {
     }
   }
 
-  # Backend usado para o estado remoto
+  # Setting remote state for Terraform
   backend "s3" {
     encrypt = true
-    # Este bucket deve ser criado manualmente
-    bucket  = "dsa-p2-terraform-<id-aws>"
-    key     = "dsa-p2.tfstate"
+    # Create manualy this bucker before running terraform instructions
+    bucket  = "dsd-p1-terraform-<id-aws>"
+    key     = "dsd-p1.tfstate"
     region  = "us-east-2"
   }
 }
 
-# Região do provider
+# Provider Region
 provider "aws" {
   region = "us-east-2"
 }

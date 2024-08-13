@@ -1,7 +1,7 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Script Principal
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# Main Script
 
-# Módulo de Armazenamento
+# Storage Module
 module "s3" {
   source            = "./modules/s3"
   name_bucket       = var.name_bucket
@@ -11,12 +11,12 @@ module "s3" {
   files_bash        = var.files_bash
 }
 
-# Módulo de Segurança
+# Security Module
 module "iam" {
   source = "./modules/iam"
 }
 
-# Módulo de Processamento
+# Processing Module
 module "emr" {
   source           = "./modules/emr"
   name_emr         = var.name_emr

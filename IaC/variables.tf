@@ -1,35 +1,35 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Script de Definição de Variáveis
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# Variable definition script
 
 variable "name_bucket" {
   type        = string
-  description = "Nome do bucket"
+  description = "Bucket Name"
 }
 
 variable "versioning_bucket" {
   type        = string
-  description = "Define se o versionamento do bucket estará habilitado"
+  description = "Defining if the bucket versioning will be enable"
 }
 
 variable "files_bucket" {
   type        = string
-  description = "Pasta de onde os scripts python serão obtidos para o processamento"
+  description = "Source folder for Python Scripts"
   default     = "./pipeline"
 }
 
 variable "files_data" {
   type        = string
-  description = "Pasta de onde os dados serão obtidos"
+  description = "Data source folder"
   default     = "./dados"
 }
 
 variable "files_bash" {
   type        = string
-  description = "Pasta de onde os scripts bash serão obtidos"
+  description = "Bash scripts folder"
   default     = "./scripts"
 }
 
 variable "name_emr" {
   type        = string
-  description = "Nome do cluster EMR"
+  description = "EMR CLuster name"
 }

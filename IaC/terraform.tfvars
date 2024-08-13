@@ -1,8 +1,8 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Script de Definição de Valores de Variáveis
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# Variable definition script
 
-name_bucket       = "dsa-p2-<id-aws>"
-name_emr          = "dsa-p2-emr-<id-aws>"
+name_bucket       = "dsd-p1-<id-aws>"
+name_emr          = "dsd-p1-emr-<id-aws>"
 versioning_bucket = "Enabled"
 files_bucket      = "./pipeline"
 files_data        = "./dados"
