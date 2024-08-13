@@ -38,6 +38,30 @@ The data used in the project were prepared based on the data available at the li
         docker build -t dsd-terraform-image:p1 .
         docker run -dit --name dsd-p1 -v ./IaC:/iac dsd-terraform-image:p1 /bin/bash
    ```
-    Please note that your Docker should be opened before the execution.
+    <b>Please note that your Docker should be opened before the execution.</b>
+
+    After container creation, open the terminal into Docker and execute the following commands:
+
+    - Set your AWS Credentials for your container.
+    ```
+    aws configure
+    ```
+
+    - Initialize your Terraform container.
+    ```
+    terraform init
+    ```
+    ```
+    terraform apply
+    ```
+
+    After the automation runs, you can access the result of the models processing in S3 bucket and check which model used in this pipeline would fit better in this natural language case. After colleting the results for this ML training, you can destroy this infrastructure create. Before that, please make sure that you have downloaded or moved the results needed from this bucket, as it will be terminated.
+
+    - To destroy this inbfrastructure, execute the destroy.
+    ```
+    terraform destroy
+    ```
 
 ## Conclusion
+
+In conclusion, this project leverages the power of Infrastructure as Code (IaC) using Terraform to automate and manage infrastructure deployment. By utilizing Terraform, we ensure consistency, scalability, and version control across different environments, facilitating easier collaboration and reducing the potential for errors. This approach not only streamlines the infrastructure management process but also aligns with best practices in modern cloud architecture, making the infrastructure more resilient and adaptable to change. Feel free to explore the code, contribute, and reach out with any questions or suggestions.
