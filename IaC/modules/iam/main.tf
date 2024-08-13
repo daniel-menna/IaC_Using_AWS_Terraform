@@ -1,7 +1,5 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Configuração dos recursos IAM
-
-# IAM role para EMR Service
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR# Configuração dos recursos IAM
+# IAM role for EMR Service
 resource "aws_iam_role" "iam_emr_service_role" {
 
   name = "iam_emr_service_role"
@@ -27,7 +25,7 @@ resource "aws_iam_role" "iam_emr_service_role" {
 EOF
 }
 
-# IAM Role para EC2 Instance Profile
+# IAM Role for EC2 Instance Profile
 resource "aws_iam_role" "iam_emr_profile_role" {
   
   name = "iam_emr_profile_role"

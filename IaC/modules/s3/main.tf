@@ -1,7 +1,7 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Módulo de armazenamento com S3
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# S3 storage model
 
-# Criação do bucket
+# Bucket creation
 resource "aws_s3_bucket" "create_bucket" {
 
   bucket = var.name_bucket
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "create_bucket" {
 
 }
 
-# Versionamento do bucket
+# Versioning bucket
 resource "aws_s3_bucket_versioning" "versioning_bucket" {
   
   bucket = aws_s3_bucket.create_bucket.id
@@ -25,7 +25,7 @@ resource "aws_s3_bucket_versioning" "versioning_bucket" {
   depends_on = [aws_s3_bucket.create_bucket]
 }
 
-# Bloqueia acesso público
+# Blocking public access
 resource "aws_s3_bucket_public_access_block" "example" {
   
   bucket = aws_s3_bucket.create_bucket.id
@@ -35,7 +35,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
   restrict_public_buckets = false
 }
 
-# Módulo S3
+# S3 module
 module "s3_object" {
   source       = "./s3_objects"
   files_bucket = var.files_bucket

@@ -1,19 +1,19 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Grupos de Segurança
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# Security Groups
 
-# Definição do recurso de grupo de segurança para o nó principal do EMR
+# Definition of the security group resource for the EMR master node
 resource "aws_security_group" "main_security_group" {
   
-  # Nome do grupo de segurança
-  name = "dsa-emr-main-security-group-p2"
+  # Security Group Name
+  name = "dsd-emr-main-security-group-p1"
   
-  # Descrição do grupo de segurança
+  # Security Group Description
   description = "Allow inbound traffic for EMR main node."
 
-  # Opção para revogar regras de segurança ao deletar o grupo de segurança
+  # Option to revoke security options when the security group has been deleted
   revoke_rules_on_delete = true
 
-  # Regra de entrada para permitir tráfego SSH (porta 22) de qualquer lugar
+  # Ingrees rule to allow trafic SSH (port 22)
   ingress {
     from_port   = 22
     to_port     = 22
@@ -21,7 +21,7 @@ resource "aws_security_group" "main_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Regra de saída para permitir todo o tráfego de saída
+  # Egress rule to permit trafic without restrictions (any port)
   egress {
     from_port   = 0
     to_port     = 0
@@ -34,7 +34,7 @@ resource "aws_security_group" "main_security_group" {
 resource "aws_security_group" "core_security_group" {
   
   # Nome do grupo de segurança
-  name = "dsa-emr-core-security-group-p2"
+  name = "dsd-emr-core-security-group-p1"
   
   # Descrição do grupo de segurança
   description = "Allow inbound outbound traffic for EMR core nodes."

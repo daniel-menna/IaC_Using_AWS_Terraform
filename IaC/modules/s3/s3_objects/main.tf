@@ -1,5 +1,5 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Pastas de trabalho do S3
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# S3 working folders
 
 # python_scripts
 resource "aws_s3_object" "python_scripts" {

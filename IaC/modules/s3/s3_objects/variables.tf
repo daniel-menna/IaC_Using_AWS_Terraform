@@ -1,22 +1,22 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Variáveis do S3
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# S3 Variables
 
 variable "name_bucket" {
   type        = string
-  description = "Nome do bucket"
+  description = "Bucket Name"
 }
 
 variable "files_bucket" {
   type        = string
-  description = "Pasta de onde os scripts python serão obtidos para o processamento"
+  description = "Source folders for scripts python to be used during processing"
 }
 
 variable "files_data" {
   type        = string
-  description = "Pasta de onde os dados serão obtidos"
+  description = "Source folder for data"
 }
 
 variable "files_bash" {
   type        = string
-  description = "Pasta de onde os scripts bash serão obtidos"
+  description = "Source folders for bash scripts to be used during processing"
 }

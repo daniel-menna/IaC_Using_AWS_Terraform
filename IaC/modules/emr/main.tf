@@ -1,59 +1,58 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Provisionamento dos recursos EMR
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# Provisioning EMR resources
 
-# Recurso de criação do cluster EMR
+# Crteating a cluster EMR
 resource "aws_emr_cluster" "cluster" {
   
-  # Nome do cluster
+  # Cluster Name
   name = var.name_emr
   
-  # Versão
+  # Version
   release_label = "emr-7.0.0"
   
-  # Aplicações
+  # Applications
   applications  = ["Hadoop", "Spark"]
 
-  # Proteção contra término do cluster
+  # Implementing cluster termination protection
   termination_protection = false
   
-  # Mantém o job de processamento ativo
+  # Mantaining the processing job active
   keep_job_flow_alive_when_no_steps = false
   
-  # URI da pasta com logs
+  # URI for logs folder
   log_uri = "s3://${var.name_bucket}/logs/"
 
-  # Role IA do serviço
+  # Service Role IA
   service_role = var.service_role
 
-  # Atributos das Instâncias EC2 do cluster
+  # Atributs for EC2 instances
   ec2_attributes {
     instance_profile = var.instance_profile
     emr_managed_master_security_group = aws_security_group.main_security_group.id
     emr_managed_slave_security_group = aws_security_group.core_security_group.id
   }
 
-  # Tipo de instância do Master (NÃO É GRATUITO)
+  # Master Instance Type
   master_instance_group {
     instance_type = "m5.4xlarge"
   }
 
-  # Tipo de instância dos workers (NÃO É GRATUITO)
+  # Workers Instance Type
   core_instance_group {
     instance_type  = "m5.2xlarge"
     instance_count = 2
   }
 
-  # Executa o script de instalação do interpretador Python e pacotes adicionais
+  # Run the installation script for the Python interpreter and additional packages
   bootstrap_action {
     name = "Instala pacotes python adicionais"
     path = "s3://${var.name_bucket}/scripts/bootstrap.sh"
   }
 
-  # Passos executados no cluster
-
-  # 1- Copia os arquivos do S3 para as instâncias EC2 do cluster. Se falhar encerra o cluster.
-  # 2- Copia os arquivos de log do S3 para as instâncias EC2 do cluster. Se falhar encerra o cluster.
-  # 3- Executa script Python com o processamento do job. Se falhar, mantém o cluster ativo para investigar o que causou a falha.
+# Steps executed on the cluster
+# 1- Copies the files from S3 to the EC2 instances in the cluster. If it fails, terminates the cluster.
+# 2- Copies the log files from S3 to the EC2 instances in the cluster. If it fails, terminates the cluster.
+# 3- Executes the Python script to process the job. If it fails, keeps the cluster active to investigate the cause of the failure.
 
   step = [
     {
@@ -97,7 +96,7 @@ resource "aws_emr_cluster" "cluster" {
     }
   ]
 
-  # Arquivo de configurações do Spark
+  # Spark's configuration file
   configurations_json = <<EOF
     [
     {

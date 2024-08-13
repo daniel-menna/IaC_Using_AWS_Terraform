@@ -1,5 +1,5 @@
-# Projeto 2 - Deploy do Stack de Treinamento Distribuído de Machine Learning com PySpark no Amazon EMR
-# Variáveis EMR
+# Project - Deploy of one Stack de MLDT with PySpark in Amazon EMR
+# EMR Variables
 
 variable "name_emr" {
   type        = string
