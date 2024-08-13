@@ -8,10 +8,10 @@ The project structure includes the setup of an EMR cluster on AWS, configured to
 The result is a robust solution for training Machine Learning models that can handle petabyte-scale data challenges, ideal for organizations seeking deep insights from large datasets.
 
 ### Main Stacks
-- AWS
-- Terraform
-- Docker
-- Python
+- AWS <a href=https://aws.amazon.com/>(https://aws.amazon.com)</a>
+- Terraform <a href=https://www.terraform.io/>(https://www.terraform.io)</a>
+- Docker <a href=https://www.docker.com/>(https://www.docker.com)</a>
+- Python <a href=https://www.python.org/>(https://www.python.org)</a>
 
 ### Data Source
 The data used in the project were prepared based on the data available at the link below:
@@ -34,33 +34,33 @@ The data used in the project were prepared based on the data available at the li
 
 4. ### Runing the automation with Terraform
     Via Terminal, into the project folder, execute the commands below:
-   ```
-        docker build -t dsd-terraform-image:p1 .
-        docker run -dit --name dsd-p1 -v ./IaC:/iac dsd-terraform-image:p1 /bin/bash
-   ```
+```
+docker build -t dsd-terraform-image:p1 .
+docker run -dit --name dsd-p1 -v ./IaC:/iac dsd-terraform-image:p1 /bin/bash
+```
     <b>Please note that your Docker should be opened before the execution.</b>
 
     After container creation, open the terminal into Docker and execute the following commands:
 
     - Set your AWS Credentials for your container.
-    ```
-    aws configure
-    ```
+```
+aws configure
+```
 
     - Initialize your Terraform container.
-    ```
-    terraform init
-    ```
-    ```
-    terraform apply
-    ```
+```
+terraform init
+```
+```
+terraform apply
+```
 
     After the automation runs, you can access the result of the models processing in S3 bucket and check which model used in this pipeline would fit better in this natural language case. After colleting the results for this ML training, you can destroy this infrastructure create. Before that, please make sure that you have downloaded or moved the results needed from this bucket, as it will be terminated.
 
     - To destroy this inbfrastructure, execute the destroy.
-    ```
-    terraform destroy
-    ```
+```
+terraform destroy
+```
 
 ## Conclusion
 
